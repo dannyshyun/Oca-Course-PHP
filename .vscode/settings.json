@@ -49,7 +49,7 @@
     "initializer_list": "cpp",
     "*.tcc": "cpp"
   },
-  "files.encoding": "shiftjis",
+  "files.encoding": "utf8",
   "code-runner.runInTerminal": true,
   "C_Cpp.default.cppStandard": "c++17",
   "livePreview.defaultPreviewPath": "/index.html",
