@@ -14,11 +14,10 @@
     <header></header>
 
     <body>
-        <?php
-        foreach($menuArray as $key => $value) 
-        {
-            echo "$value, ";
-        }
-        ?>
+        <pre>
+            <?php
+                var_dump( $menuArray );
+            ?>
+        </pre>
     </body>
 </html>
