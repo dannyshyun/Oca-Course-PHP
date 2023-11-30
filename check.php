@@ -91,6 +91,90 @@
     
     $num2 = null;
     echo ("\$num2は存在して" . (isset($num2) ? "います" : "いません") . "<br/>");
+    echo ("<br/>");
+    $array = array
+    (
+        /*     */
+        /*     */
+        /*     */
+        /*     */
+        /*     */
+    );
+    for( $i = 0; $i < 5; $i++ )
+    {
+        printf
+        (
+            "\$array[%d]は存在して%s<br/>",
+            $i,
+            isset($array[$i]) === true ? "います($array[$i])。" :"いません。"
+        );
+    }
+    echo ("<br/>");
+
+    echo ("空っぽかどうかのチェック<br/>");
+    $emptyCheckValueArray = array
+    (
+        // 整数
+        0, 1, -99,
+        // 小数点数
+        0.0, -0.0, 1.2, -1.2,
+        // 文字列
+        "", "hoge", "0", "1",
+        // bool値
+        true, false,
+        // 配列
+        array(), array(0), array(0, 1, 2),
+        // NULL
+        null
+    );
+
+    foreach( $emptyCheckValueArray as $value )
+    {
+        printf
+        (
+            "empty( %s ) => %s<br/>",
+            var_export($value, true),
+            empty($value) ? "空っぽ": "空っぽではない"
+        );
+    }
+
+    printf
+    (
+        "empty(()\$var99) => %s<br/>",
+        empty($var99) ? "空っぽ": "空っぽではない"
+    );
+    echo ("<br/>");
+
+    echo ("数値形式チェック<br/>");
+    $numbericCheckValueArray = array
+    (
+        // 整数
+        0, 1, -99,
+        // 小数点数
+        0.0, -0.0, 1.2, -1.2,
+        // 文字列
+        "", "hoge", "0", "1",
+        // bool値
+        true, false,
+        // 配列
+        array(), array(0), array(0, 1, 2),
+        // NULL
+        null,
+        // 数値形式の文字列
+        "0", "256",
+        "0.0", "7.89",
+        // 文字列
+        "", "hoge"
+    );
+    foreach( $numbericCheckValueArray as $value )
+    {
+        printf
+        (
+            "is_numeric( %s ) => %s<br/>",
+            var_export($value, true),
+            is_numeric($value) ? "数値": "数値ではない"
+        );
+    }
     ?>
 </body>
 
