@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form action="http://localhost/template/02/01/receive.php" method="post">
+    <form action="http://localhost/template/02/02/receive.php" method="post">
         メッセージを選択してください：<br />
         <input type="radio" name="message" value="ラジオボタン1"> ラジオボタン 1<br>
         <input type="radio" name="message" value="ラジオボタン2"> ラジオボタン 2<br>

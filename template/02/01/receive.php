@@ -2,10 +2,6 @@
 <?php
 session_start();
 $message = isset($_POST["message"]) ? $_POST["message"] : null;
-if (!empty($message)) {
-    $_SESSION["message"] = $message;
-}
-$sessionData = isset($_SESSION["message"]) ? $_SESSION["message"] : null;
 ?>
 <html>
 
