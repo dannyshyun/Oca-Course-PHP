@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once(dirname(__FILE__)."/const.php");
+require_once(dirname(__FILE__) . "/const.php");
 
 // ユーザーIDを取得
 $id = isset($_SESSION['id']) ? $_SESSION['id'] : null;
@@ -26,6 +26,10 @@ if (isset($_SESSION['errorMessage'])) {
     $errorMessage = $_SESSION['errorMessage'];
     unset($_SESSION['errorMessage']);
 }
+
+// 過去のメッセージを取得
+$messages = isset($_SESSION['message'][$id]) ? $_SESSION['message'][$id] : array();
+
 ?>
 <html>
 
@@ -36,9 +40,9 @@ if (isset($_SESSION['errorMessage'])) {
 <body>
     <?php
     // ログインしていない場合、ログインフォームを表示
-    if (!$id) :
+    if ($id === null) :
     ?>
-        <form action="login.php" method="post">
+        <form action="./login.php" method="post">
             ログイン情報を入力してください<br>
             <br>
             <?php
@@ -55,11 +59,24 @@ if (isset($_SESSION['errorMessage'])) {
     else :
     ?>
         ログイン中 : <?php echo $username; ?><br>
+        <a href="./logout.php">ログアウト</a><br>
         <br>
-        <form action="post.php" method="post">
+        <form action="./post.php" method="post">
+            <?php if ($errorMessage !== "") : ?>
+                <font color="red"><?php echo $errorMessage; ?></font><br>
+            <?php endif;?>
+            
             <input type="text" name="message" placeholder="投稿内容を入力してください"><br>
             <input type="submit" value="投稿"><br>
         </form>
+        <br>
+        ～～～　過去に入力されたメッセージ　～～～<br>
+        <?php foreach ($messages as $message) : ?>
+            <?php
+            $sntMessage = htmlspecialchars($message);
+            echo $message . "<br>";
+            ?>
+        <?php endforeach; ?>
     <?php endif; ?>
 
 </body>

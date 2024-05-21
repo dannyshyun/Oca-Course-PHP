@@ -1,13 +1,7 @@
 <?php
 session_start();
 
-// ログイン時に本人確認をするための登録済みユーザー情報配列
-$users = array(
-    array("username" => "Taro", "password" => "password"),
-    array("username" => "Haruko", "password" => "password1"),
-    array("username" => "Jiro", "password" => "password2"),
-    array("username" => "Saburo", "password" => "password3"),
-);
+require_once(dirname(__FILE__) ."/const.php");
 
 // 送信されたデータを取得
 $username = isset($_POST['username']) ? $_POST['username'] : "";
