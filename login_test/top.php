@@ -54,6 +54,9 @@ $messages = isset($_SESSION['message'][$id]) ? $_SESSION['message'][$id] : array
             パスワード : <input type="password" name="password"><br>
             <input type="submit" value="Login"><br>
         </form>
+        <br>
+        <!-- register.phpへのリンク -->
+        <a href="./register.php">ユーザー登録する！</a>
     <?php
     // ログインしている場合、ユーザー名を表示
     else :
